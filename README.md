@@ -1,13 +1,25 @@
 ![XCharge](https://github.com/iamlooper/XCharge/raw/main/xcharge.png)
 
-# XCharge
+# XCharge™ v1.4.5
 
-XCharge™ is a fast charging enhancement magisk module.
+XCharge™ is a fast charging enhancement Magisk module, now updated to be 100% shell-based for universal compatibility.
 
-## Explanation
+### **Forked & Maintained by:**
+- **Roman Mia (@rmia46)**
 
-The main function of **XCharge™** is to mutate `/sys/class/power_supply/battery/constant_charge_current_max` tunable. So, that we can change the power supply to battery which allows us to improve fast charging for a specified device. It also modifies temperature related tunables which allows us to change the temperature limit at which charging will be slow down by system. It has a Menu through which we can make use of the above mentioned functions. To access the Menu, type `su -c xcharge` in Termux or any other terminal emulator. It has three modes i.e Fast, Faster & Fastest. Related info about modes is given in the Menu.
+## **Features**
+- **Architecture Shift:** All pre-compiled binaries have been removed and replaced with a high-performance shell controller. This ensures the module works on any Android device regardless of CPU architecture.
+- **Manual Mode:** Set your own custom charging current (mA) and temperature limits.
+- **Colorful UI:** Professional ANSI-colored terminal interface.
+- **Boot Persistence:** Your settings are saved and automatically applied 30 seconds after the system boots.
 
-# Download
+## **How to Run**
+After flashing and rebooting, open **Termux** or any other terminal emulator and type:
+```bash
+su -c xcharge
+```
 
-Go to [here](https://www.pling.com/p/1832596/) to download XCharge™ builds.
+## **Important Notes**
+- **Reboot is required** after installation.
+- Do not use with other charging enhancement modules.
+- Use conservative values in manual mode to protect your hardware.

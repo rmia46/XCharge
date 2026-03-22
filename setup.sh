@@ -39,8 +39,10 @@ REPLACE="
 
 # Set permissions
 set_permissions() {
-  set_perm_recursive "$MODPATH" 0 0 0777 0755
-  set_perm_recursive "$MODPATH/system/bin" 0 0 0777 0755
+  # root:root, dir: 0755, file: 0644
+  set_perm_recursive "$MODPATH" 0 0 0755 0644
+  # Ensure bin is executable
+  set_perm "$MODPATH/system/bin/xcharge" 0 0 0755
 }
 
 ############
@@ -69,11 +71,14 @@ init_main() {
   ui_print "[*] Installing XCharge..."
   ui_print ""
 
-  [[ "$IS64BIT" == "true" ]] && {
-    mv -f "$MODPATH/system/bin/xcharge64" "$MODPATH/system/bin/xcharge" 
-  } || {
-    mv -f "$MODPATH/system/bin/xcharge32" "$MODPATH/system/bin/xcharge"
-  }
+  # Remove architecture specific binaries and any old binary called xcharge
+  rm -f "$MODPATH/system/bin/xcharge64" "$MODPATH/system/bin/xcharge32" "$MODPATH/system/bin/xcharge"
+  
+  # Install the shell script as 'xcharge'
+  mv -f "$MODPATH/system/bin/xcharge.sh" "$MODPATH/system/bin/xcharge"
+  
+  # Set permissions (important for it to be recognized as an executable)
+  chmod 755 "$MODPATH/system/bin/xcharge"
 
   sleep 0.5
   
@@ -84,17 +89,14 @@ init_main() {
 
   ui_print " --- Notes --- "
   ui_print ""
-  ui_print "[*] Reboot is required"
+  ui_print "[*] XCharge v1.4.5 (Roman Mia Fork)"
+  ui_print "[*] Binaries removed for better compatibility"
+  ui_print "[*] Reboot is required after installation"
   ui_print ""
-  ui_print "[*] Do not use XCharge™ with other charging enhancement modules"
+  ui_print "[*] Type (su -c xcharge) in terminal to open menu"
   ui_print ""
-  ui_print "[*] (su -c xcharge) to open XCharge™ Menu in Terminal"
+  ui_print "[*] Follow @rmia46 for updates"
   ui_print ""
-  ui_print "[*] Report issues to @loopchats on Telegram"
-  ui_print ""
-  ui_print "[*] Join @loopprojects on Telegram to get XCharge™ updates"
-  ui_print ""
-  ui_print "[*] You can find me at iamlooper @ Telegram for direct support"
 
   sleep 2.5
-}
+  }

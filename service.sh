@@ -14,4 +14,4 @@ wait_until_boot_complete
 sleep 30
 
 # Execute XCharge™
-xcharge --execute
+/system/bin/xcharge --execute

@@ -1,5 +1,5 @@
 id=xcharge
 name=XCharge
-version=v1.3
-author=iamlooper @ telegram
-description=XCharge is a fast charging enhancement magisk module.
+version=v1.4.5
+author=iamlooper | Enhanced by @rmia46 (Roman Mia)
+description=Fast charging enhancement via Shell Script. Binaries removed for better compatibility. Manual Current & Temp limits included.

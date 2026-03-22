@@ -121,6 +121,7 @@ rmtouch "$MODPATH/LICENSE"
 rmtouch "$MODPATH/README.md"
 rmtouch "$MODPATH/changelog.md"
 rmtouch "$MODPATH/xcharge.png"
+rmtouch "$MODPATH/system/bin/xcharge.sh"
 rmtouch "$MODPATH/system/bin/xcharge64"
 rmtouch "$MODPATH/system/bin/xcharge32"
 
